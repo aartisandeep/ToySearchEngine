@@ -1,6 +1,6 @@
 #this code implements a simple search engine.
 #The code reads a corpus and produces TF-IDF vectors for documents in the corpus.
-#Then, given a query string, the code returns the query answer--the document with the highest cosine similarity score for the query.
+#Then, given a query string, the code returns the query answer - the document with the highest cosine similarity score for the query.
 
 import os
 import math
@@ -13,7 +13,7 @@ from collections import Counter
 corpusroot = 'put your folder path here'
 #list to store the tokens from the corpus
 corpus_tokens = []
-#tokenizer to tokenize the tokens, as per instructions mentioned by the professor
+#tokenizer to tokenize the tokens
 tokenizer = RegexpTokenizer(r'[a-zA-Z]+')
 #using porter stemmer
 stemmer = PorterStemmer()
@@ -98,7 +98,7 @@ def getweight(filename, token):
     normalized_weight = raw_weight_token / magnitude if magnitude > 0 else 0
     return normalized_weight
 
-#this is the function to get the tf.idf weitghs for the query based on "lnc" scheme as mnentioned in the question
+#this is the function to get the tf.idf weitghs for the query based on "lnc" scheme
 def query(qstring):
     q_tokens = tokenizer.tokenize(qstring.lower())
     q_tokens_stemmed = stem_tokens(remove_stopwords(q_tokens))
